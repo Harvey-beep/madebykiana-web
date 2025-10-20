@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 
 const KianaAvatar = "https:/i.ibb.co/L5T9W5V/kiana.png";
 
