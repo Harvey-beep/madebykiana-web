@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
 
             {/* Right section: Navigation Links */}
             <div className="hidden md:flex space-x-10 text-lg font-fredoka text-black pr-10">
-                <NavLink href = "/home" label = "HOME" isActive={location.pathname === "/home"}/>
+                <NavLink href = "/" label = "HOME" isActive={location.pathname === "/"}/>
                 <NavLink href = "/products" label = "PRODUCTS" isActive={location.pathname === "/products"}/>
                 <NavLink href = "/gallery" label = "GALLERY" isActive={location.pathname === "/gallery"} />
                 <NavLink href = "/about-me" label = "ABOUT ME" isActive={location.pathname === "/about-me"} />
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
                         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                         className="absolute top-0 left-0 w-full h-screen bg-black z-20 flex flex-col items-center justify-center space-y-10 text-white"
                     >
-                        <NavLink href="/home" label="HOME" isMobile isActive={location.pathname === "/home"} onClick={toggleMenu}/>
+                        <NavLink href="/" label="HOME" isMobile isActive={location.pathname === "/"} onClick={toggleMenu}/>
                         <NavLink href="/products" label="PRODUCTS" isMobile isActive={location.pathname === "/products"} onClick={toggleMenu} />
                         <NavLink href="/gallery" label="GALLERY" isMobile isActive={location.pathname === "/gallery"} onClick={toggleMenu} />
                         <NavLink href="/about-me" label="ABOUT ME" isMobile isActive={location.pathname === "/about-me"} onClick={toggleMenu} />
