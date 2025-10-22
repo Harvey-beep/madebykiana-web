@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import type { Variants } from 'framer-motion';
 
-import KianaGradPhoto from '../assets/IMG_1140.jpg';
+import KianaGradPhoto from '../assets/grad pic.png';
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
