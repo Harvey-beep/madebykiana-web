@@ -8,7 +8,7 @@ interface ProductCardProps {
     onClick: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ slug, imageUrl, title, description, onClick }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ imageUrl, title, description, onClick }) => {
     return (
         <div className="border-4 border-black rounded-3xl p-2.5">
             <div className="bg-gray-100 rounded-2xl p-6 flex flex-col items-center text-center h-full">
