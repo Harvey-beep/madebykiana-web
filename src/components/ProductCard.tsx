@@ -1,14 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 interface ProductCardProps {
     slug: string;
     imageUrl: string;
     title: string;
     description: string;
+    onClick: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ slug, imageUrl, title, description }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ slug, imageUrl, title, description, onClick }) => {
     return (
         <div className="border-4 border-black rounded-3xl p-2.5">
             <div className="bg-gray-100 rounded-2xl p-6 flex flex-col items-center text-center h-full">
@@ -24,12 +24,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ slug, imageUrl, title, descri
                     {description}
                 </p>
                 
-                <Link
-                    to={`/products/${slug}`}
+                <button
+                    onClick={onClick}
                     className="bg-black text-white font-fredoka font-bold py-3 px-8 rounded-full mt-auto hover:bg-gray-800 transition-colors"
                 >
                     VIEW PRODUCT
-                </Link>
+                </button>
             </div>
         </div>
     );

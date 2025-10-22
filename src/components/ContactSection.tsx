@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const KianaAvatar = "https:/i.ibb.co/L5T9W5V/kiana.png";
+import KianaAvatar from '../assets/LOGO.png'
 
 const containerVariants = {
     hidden: { opacity: 0 },

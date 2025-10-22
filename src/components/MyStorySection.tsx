@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import type { Variants } from 'framer-motion';
 
-import KianaGradPhoto from '../assets/Hirono-Sample-2.jpg';
+import KianaGradPhoto from '../assets/IMG_1140.jpg';
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -55,7 +55,7 @@ const MyStorySection: React.FC = () => {
                     <img
                         src={KianaGradPhoto}
                         alt="Kiana holding flowers"
-                        className="w-full h-auto rounded-xl object-cover" // Inner rounding
+                        className="w-full h-auto rounded-xl object-cover"
                     />
                 </motion.div>
 

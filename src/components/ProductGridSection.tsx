@@ -1,42 +1,64 @@
 import React, { useState} from "react";
 import ProductCard from "./ProductCard";
+import Modal from "./Modal";
+import FullBodyClayArt from '../assets/FULL-BODY.png'
+import FullBodyPet from '../assets/WITH PET.png'
+import FullBodyAccessory from '../assets/WITH ACCESSORY.png'
+import KeychainClayArt from '../assets/KEYCHAIN.png'
+import KeychainInitials from '../assets/WITH INITIALS.png'
+import KeychainAccessory from '../assets/WITH ACCESSORIES.png'
 
-const mockProducts = [
+type Product = {
+    slug: string;
+    imageUrl: string;
+    title: string;
+    description: string;
+    longDescription?: string;
+    price?: number;
+}
+
+const products = [
     {
         slug: "full-body-clay-art",
-        imageUrl: "https://placehold.co/600x400/F6BE00/black?text=Image+1",
+        imageUrl: FullBodyClayArt,
         title: "FULL-BODY CLAY ART",
         description: "A personalized full-body clay art with no accessories",
+        price: 600
     },
     {
         slug: 'full-body-w-pet',
-        imageUrl: 'https://placehold.co/600x400/F6BE00/black?text=Image+2',
+        imageUrl: FullBodyPet,
         title: 'FULL-BODY W/ PET',
         description: 'A personalized full-body figurine with a personalized pet figurine',
+        price: 600
     },
     {
         slug: 'full-body-w-accessory',
-        imageUrl: 'https://placehold.co/600x400/F6BE00/black?text=Image+3',
+        imageUrl: FullBodyAccessory,
         title: 'FULL-BODY W/ ACCESSORY',
         description: 'A personalized full-body figurine with a personalized accessory',
+        price: 600
     },
     {
         slug: 'head-keychain-clay-art',
-        imageUrl: 'https://placehold.co/600x400/F6BE00/black?text=Image+4',
+        imageUrl: KeychainClayArt,
         title: 'HEAD KEYCHAIN CLAY ART',
         description: 'A personalized head keychain clay art with no accessories',
+        price: 600
     },
     {
         slug: 'keychain-w-initials',
-        imageUrl: 'https://placehold.co/600x400/F6BE00/black?text=Image+5',
+        imageUrl: KeychainInitials,
         title: 'KEYCHAIN W/ INITIALS',
         description: 'A personalized head keychain clay art with a personalized initial',
+        price: 600
     },
     {
         slug: 'keychain-w-accessory',
-        imageUrl: 'https://placehold.co/600x400/F6BE00/black?text=Image+6',
+        imageUrl: KeychainAccessory,
         title: 'KEYCHAIN W/ ACCESSORY',
         description: 'A personalized head keychain clay art with a personalized accessory',
+        price: 600
     },
 ];
 
@@ -82,6 +104,18 @@ const PageButton: React.FC<PageButtonProps> = ({ page, isActive, onClick }) => (
 const ProductGridSection: React.FC = () => {
     const [activeFilter, setActiveFilter] = useState("ALL PRODUCTS");
     const [currentPage, setCurrentPage] = useState(1);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedProduct, setIsSelectedProduct] = useState<Product | null>(null);
+
+    const openModal = (product: Product) => {
+        setIsSelectedProduct(product);
+        setIsModalOpen(true);
+    }
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setIsSelectedProduct(null)
+    }
 
     return (
         <section className="py-16 px-4 md:px-8 bg-white">
@@ -124,13 +158,14 @@ const ProductGridSection: React.FC = () => {
 
                 {/* --- Product Grid --- */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {mockProducts.map((product) => (
+                    {products.map((product) => (
                         <ProductCard
                         key={product.slug}
                         slug={product.slug}
                         imageUrl={product.imageUrl}
                         title={product.title}
                         description={product.description}
+                        onClick={() => openModal(product)}
                         />
                     ))}
                 </div>
@@ -145,6 +180,34 @@ const ProductGridSection: React.FC = () => {
                     <PageButton page={9} isActive={currentPage === 9} onClick={() => setCurrentPage(9)} />
                     <PageButton page=">" onClick={() => setCurrentPage(p => Math.min(9, p + 1))} />
                 </div>
+
+                <Modal isOpen={isModalOpen} onClose={closeModal}>
+                    {selectedProduct && (
+                        <div className="flex flex-col items-center text-center">
+                            <img
+                                src={selectedProduct.imageUrl}
+                                alt={selectedProduct.title}
+                                className="w-full h-80 object-contain rounded-lg mb-4"
+                            />
+                            <h2 className="font-fredoka font-bold text-2xl mb-2 text-black">
+                                {selectedProduct.title}
+                            </h2>
+                            <p className="font-fredoka text-gray-700 text-base mb-4">
+                                {selectedProduct.longDescription || selectedProduct.description}
+                            </p>
+                            {selectedProduct.price && (
+                                <p className="font-fredoka font-bold text-xl text-black mb-6">
+                                    ₱{selectedProduct.price.toFixed(2)} {/* Example price */}
+                                </p>
+                            )}
+                            <button
+                                className="bg-black text-white font-fredoka font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors"
+                            >
+                                Request Custom Order
+                            </button>
+                        </div>
+                    )}
+                </Modal>
             </div>
         </section>
     );

@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import KianaAvatar from '../assets/LOGO.png'
+
 interface NavLinkProps {
     href: string;
     label: string;
@@ -9,8 +11,6 @@ interface NavLinkProps {
     isMobile?: boolean
     onClick?: () => void
 }
-
-const KianaAvatar = "https:/i.ibb.co/L5T9W5V/kiana.png";
 
 const HamburgerIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => (
     <button 

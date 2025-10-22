@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import GroupFigurineImage from '../assets/Hirono-Sample-removebg-preview.png';
-import KeychainGroupImage from '../assets/20240717_142644_114823____1_____1200x1200-removebg-preview.png';
+import GroupFigurineImage from '../assets/5 TRANSPARENT_5.png';
+import KeychainGroupImage from '../assets/5 TRANSPARENT_4.png';
 
 const containerVariants = {
     hidden: { opacity: 0 },

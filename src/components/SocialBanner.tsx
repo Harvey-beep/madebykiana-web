@@ -1,6 +1,6 @@
 import React from "react";
 
-const KianaAvatar = "https:/i.ibb.co/L5T9W5V/kiana.png";
+import KianaAvatar from '../assets/LOGO.png'
 
 const IconWrapper: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
     <a href={href} target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition-colors w-8 h-8 flex items-center justify-center">

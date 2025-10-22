@@ -92,18 +92,18 @@ const ReviewsSection: React.FC = () => {
             <div className="container mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Card 1 */}
                 <ReviewsCard
-                    name="Maria Santos"
-                    quote="I got a custom portrait of me and my next friend, and it came out amazing! The details are spot-on, right down to the little things we thought no one would notice. It feels so personal and honestly brought such a big smile to our faces. The quality of the artwork is incredible and way better than I expected for something custom-made. I'm already planning my next order because this experience was perfect from start to finish!"
+                    name="Jomelyn Viña"
+                    quote="Hello! I received the item kanina. Sobrang cute ng items! I’m so excited to give them to my friends."
                 />
                 {/* Card 2 */}
                 <ReviewsCard
-                    name="Carlo Reyes"
-                    quote="Ordered a collectible figure of my favorite game character and wow—better than I imagined! The craftsmanship is super high-quality, and the character looks like it stepped right out of the screen. I saw new bits of personality they managed to capture in the design. It feels sturdy and premium, not like something cheaply made. Friends who've seen it keep asking where I got it from. I'll 100% be back for more because this is a collector's dream come true!"
+                    name="Vanessa Garma"
+                    quote="I received it yesterday. The clay figure was nicely done!! 😁 The person I gave it to really liked it as well ✨I’m actually thinking to get one for myself pero baka tsaka na haha. Anw, thank you so much for sharing your talent and art! 🤎"
                 />
-                {/* Card 3 (Spans 2 columns and is centered) */}
+                {/* Card 3 */}
                 <ReviewsCard
-                    name="Angela Dela Cruz"
-                    quote="I surprised my partner with a custom keychain of us, and he loved it! The likeness was so accurate that we both couldn't stop laughing and smiling when we saw it. It's such a unique, thoughtful gift that feels one-of-a-kind. The keychain itself is durable and really well-made, so I know it'll last a long time. It turned out way more special than anything I could've found in a store."
+                    name="Danica Millen Rivera"
+                    quote="hello po, received na po yung order 😊. thank you so much po, for these customized keychains and for keeping me updated with my order 💕"
                     className="md:col-span-2 max-w-xl mx-auto w-full"
                 />
             </div>

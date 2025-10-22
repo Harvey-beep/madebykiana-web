@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion'
-import CustomFigurinesImage from '../assets/Hirono-Sample-removebg-preview.png';
-import KianaFigurineImage from '../assets/20240717_142644_114823____1_____1200x1200-removebg-preview.png';
-import ThirdFigurineImage from '../assets/20241023_173955_545091____1_____1200x1200-removebg-preview.png';
+import CustomFigurinesImage from '../assets/3 TRANSPARENT.png';
+import KianaFigurineImage from '../assets/3 TRANSPARENT_1.png';
+import ThirdFigurineImage from '../assets/3 TRANSPARENT_2.png';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -79,17 +79,17 @@ const HeroSection: React.FC = () => {
                     <img
                         src={CustomFigurinesImage}
                         alt="Customized Keychains"
-                        className="absolute z-10 w-2/3 md:w-auto md:max-w-[70%] lg:max-w-[70%] h-auto 
+                        className="absolute z-10 w-2/3 md:w-auto md:max-w-[90%] lg:max-w-[90%] h-auto 
                                    top-1/2 left-[25%] lg:left-[30%] 
                                    -translate-x-1/2 -translate-y-1/2 
-                                   -rotate-10"
+                                   -rotate-10 drop-shadow-lg"
                     />
 
                     {/* Image 2 (Back-right) */}
                     <img
                         src={KianaFigurineImage}
                         alt="Single Kiana Figurine"
-                        className="absolute z-10 w-2/3 md:w-auto md:max-w-[70%] lg:max-w-[70%] h-auto 
+                        className="absolute z-10 w-2/3 md:w-auto md:max-w-[90%] lg:max-w-[90%] h-auto 
                                    top-1/2 left-[75%] lg:left-[80%] 
                                    -translate-x-1/2 -translate-y-1/2 
                                    rotate-10"
@@ -99,7 +99,7 @@ const HeroSection: React.FC = () => {
                     <img
                         src={ThirdFigurineImage}
                         alt="Third Figurine"
-                        className="absolute z-20 w-2/3 md:w-auto md:max-w-[70%] lg:max-w-[70%] h-auto 
+                        className="absolute z-20 w-2/3 md:w-auto md:max-w-[90%] lg:max-w-[90%] h-auto 
                                    top-[55%] left-[50%] lg:left-[55%] 
                                    -translate-x-1/2 -translate-y-1/2 
                                    rotate-2"
