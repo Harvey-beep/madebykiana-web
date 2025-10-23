@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 interface ProductCardProps {
     slug: string;
@@ -10,7 +11,14 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ imageUrl, title, description, onClick }) => {
     return (
-        <div className="border-4 border-black rounded-3xl p-2.5">
+        <motion.div
+            className="border-4 border-black rounded-3xl p-2.5 h-full cursor-pointer"
+            whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+            onClick={onClick}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && onClick()}
+        >
             <div className="bg-gray-100 rounded-2xl p-6 flex flex-col items-center text-center h-full">
                 <img
                     src={imageUrl}
@@ -25,13 +33,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ imageUrl, title, description,
                 </p>
                 
                 <button
-                    onClick={onClick}
-                    className="bg-black text-white font-fredoka font-bold py-3 px-8 rounded-full mt-auto hover:bg-gray-800 transition-colors"
+                    className="bg-black text-white font-fredoka font-bold py-3 px-8 rounded-full mt-auto pointer-events-none"
                 >
                     VIEW PRODUCT
                 </button>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

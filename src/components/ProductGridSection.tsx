@@ -1,4 +1,5 @@
 import React, { useState} from "react";
+import { motion, type Variants } from 'framer-motion';
 import ProductCard from "./ProductCard";
 import Modal from "./Modal";
 import FullBodyClayArt from '../assets/FULL-BODY.png'
@@ -74,6 +75,27 @@ interface PageButtonProps {
     onClick?: () => void;
 };
 
+const sectionVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.5 } },
+};
+
+const gridVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2,
+        },
+    },
+};
+
+const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.4, ease: 'easeOut' } },
+};
+
 const FilterButton: React.FC<FilterButtonProps> = ({ label, isActive, onClick }) => (
     <button
         onClick={onClick}
@@ -118,7 +140,13 @@ const ProductGridSection: React.FC = () => {
     }
 
     return (
-        <section className="py-16 px-4 md:px-8 bg-white">
+        <motion.section
+            className="py-16 px-4 md:px-8 bg-white"
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+        >
             <div className="max-w-7xl mx-auto">
                 
                 {/* --- Filter Bar --- */}
@@ -157,18 +185,23 @@ const ProductGridSection: React.FC = () => {
                 </div>
 
                 {/* --- Product Grid --- */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    variants={gridVariants}
+                >
                     {products.map((product) => (
-                        <ProductCard
-                        key={product.slug}
-                        slug={product.slug}
-                        imageUrl={product.imageUrl}
-                        title={product.title}
-                        description={product.description}
-                        onClick={() => openModal(product)}
-                        />
+                        <motion.div key={product.slug} variants={cardVariants}>
+                            <ProductCard
+                                key={product.slug}
+                                slug={product.slug}
+                                imageUrl={product.imageUrl}
+                                title={product.title}
+                                description={product.description}
+                                onClick={() => openModal(product)}
+                            />
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* --- Pagination --- */}
                 <div className="flex justify-center items-center space-x-2 mt-12">
@@ -209,7 +242,7 @@ const ProductGridSection: React.FC = () => {
                     )}
                 </Modal>
             </div>
-        </section>
+        </motion.section>
     );
 };
 
